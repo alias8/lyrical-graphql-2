@@ -16,14 +16,18 @@ cd graphql-ts-server-boilerplate
 ```
 yarn
 ```
-4. Start PostgreSQL server
+4. Start PostgreSQL server 11. Download it from [here](https://postgresapp.com/downloads.html) 
+and a database inspector, PGAdmin from [here](https://www.pgadmin.org/download/). 
+
 5. Create database called `graphql-ts-server-boilerplate`
 ```
 createdb graphql-ts-server-boilerplate
 ```
 6. [Add a user](https://medium.com/coding-blocks/creating-user-database-and-adding-access-on-postgresql-8bfcd2f4a91e) with the username `postgres` and and no password. (You can change what these values are in the [ormconfig.json](https://github.com/benawad/graphql-ts-server-boilerplate/blob/master/ormconfig.json))
 
-7. Install and start Redis
+7. Install and start [Redis](https://redis.io/). Start with `redis cli`
+
+8. Test that it works with `yarn test`.
 
 ## Usage
 
