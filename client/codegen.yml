@@ -1,0 +1,14 @@
+overwrite: true
+schema: "http://localhost:4000"
+documents: "src/gqlOperations/*.ts"
+generates:
+  src/generated/graphql.tsx:
+    plugins:
+      - add: '/* tslint:disable */'
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+    config:
+      withHOC: true
+      withHooks: false
+      withComponent: true
