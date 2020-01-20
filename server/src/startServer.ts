@@ -16,6 +16,7 @@ import { createTestConn } from "./testUtils/createTestConn";
 const SESSION_SECRET = "ajslkjalksjdfkl";
 const RedisStore = connectRedis(session as any);
 
+console.log(`----------------------------------process.env.NODE_ENV is ${process.env.NODE_ENV}`);
 export const startServer = async () => {
   if (process.env.NODE_ENV === "test") {
     await redis.flushall();
@@ -62,10 +63,7 @@ export const startServer = async () => {
 
   const cors = {
     credentials: true,
-    origin:
-      process.env.NODE_ENV === "test" || process.env.NODE_ENV === "development"
-        ? "*"
-        : (process.env.FRONTEND_HOST as string)
+      origin: ["http://localhost:3000"], // for some reason * doesn't work here
   };
 
   server.express.get("/confirm/:id", confirmEmail);
