@@ -40,6 +40,7 @@ export class Register extends React.PureComponent<{}, IState> {
                                 }
                                 value={password}
                             />
+                            <input type="submit" value="Submit" />
                         </form>
                     </>
                 )}
@@ -59,5 +60,11 @@ export class Register extends React.PureComponent<{}, IState> {
                 password
             }
         })
+            .then((res) => {
+                const a = 2 ;
+            })
+            .catch((error) => {
+                const b = 2;
+            })
     };
 }
