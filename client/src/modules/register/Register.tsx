@@ -1,6 +1,6 @@
 import * as React from "react";
 import {
-    RegisterComponent,
+    RegisterComponent, RegisterComponentProps,
     RegisterMutationFn,
 } from "../../generated/graphql";
 import {SyntheticEvent} from "react";
@@ -10,7 +10,9 @@ interface IState {
     password: string;
 }
 
-export class Register extends React.PureComponent<{}, IState> {
+type IProps = RegisterComponentProps
+
+export class Register extends React.PureComponent<IProps, IState> {
     public state = {
         email: "",
         password: ""

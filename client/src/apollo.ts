@@ -7,7 +7,7 @@ import { getMainDefinition } from "apollo-utilities";
 
 const httpLink = createUploadLink({
     uri: process.env.REACT_APP_SERVER_URL,
-    credentials: "include"
+    // credentials: "include" // we have to comment this out to make register work, how to fix?
 });
 
 // Create a WebSocket link:
