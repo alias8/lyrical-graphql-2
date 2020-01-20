@@ -65,13 +65,13 @@ export type User = {
   email: Scalars['String'],
 };
 
-export type RegisterMutationMutationVariables = {
+export type RegisterMutationVariables = {
   email: Scalars['String'],
   password: Scalars['String']
 };
 
 
-export type RegisterMutationMutation = (
+export type RegisterMutation = (
   { __typename?: 'Mutation' }
   & { register: Maybe<Array<(
     { __typename?: 'Error' }
@@ -80,31 +80,31 @@ export type RegisterMutationMutation = (
 );
 
 
-export const RegisterMutationDocument = gql`
-    mutation RegisterMutation($email: String!, $password: String!) {
+export const RegisterDocument = gql`
+    mutation Register($email: String!, $password: String!) {
   register(email: $email, password: $password) {
     path
     message
   }
 }
     `;
-export type RegisterMutationMutationFn = ApolloReactCommon.MutationFunction<RegisterMutationMutation, RegisterMutationMutationVariables>;
-export type RegisterMutationComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<RegisterMutationMutation, RegisterMutationMutationVariables>, 'mutation'>;
+export type RegisterMutationFn = ApolloReactCommon.MutationFunction<RegisterMutation, RegisterMutationVariables>;
+export type RegisterComponentProps = Omit<ApolloReactComponents.MutationComponentOptions<RegisterMutation, RegisterMutationVariables>, 'mutation'>;
 
-    export const RegisterMutationComponent = (props: RegisterMutationComponentProps) => (
-      <ApolloReactComponents.Mutation<RegisterMutationMutation, RegisterMutationMutationVariables> mutation={RegisterMutationDocument} {...props} />
+    export const RegisterComponent = (props: RegisterComponentProps) => (
+      <ApolloReactComponents.Mutation<RegisterMutation, RegisterMutationVariables> mutation={RegisterDocument} {...props} />
     );
     
-export type RegisterMutationProps<TChildProps = {}> = ApolloReactHoc.MutateProps<RegisterMutationMutation, RegisterMutationMutationVariables> & TChildProps;
-export function withRegisterMutation<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
+export type RegisterProps<TChildProps = {}> = ApolloReactHoc.MutateProps<RegisterMutation, RegisterMutationVariables> & TChildProps;
+export function withRegister<TProps, TChildProps = {}>(operationOptions?: ApolloReactHoc.OperationOption<
   TProps,
-  RegisterMutationMutation,
-  RegisterMutationMutationVariables,
-  RegisterMutationProps<TChildProps>>) {
-    return ApolloReactHoc.withMutation<TProps, RegisterMutationMutation, RegisterMutationMutationVariables, RegisterMutationProps<TChildProps>>(RegisterMutationDocument, {
-      alias: 'registerMutation',
+  RegisterMutation,
+  RegisterMutationVariables,
+  RegisterProps<TChildProps>>) {
+    return ApolloReactHoc.withMutation<TProps, RegisterMutation, RegisterMutationVariables, RegisterProps<TChildProps>>(RegisterDocument, {
+      alias: 'register',
       ...operationOptions
     });
 };
-export type RegisterMutationMutationResult = ApolloReactCommon.MutationResult<RegisterMutationMutation>;
-export type RegisterMutationMutationOptions = ApolloReactCommon.BaseMutationOptions<RegisterMutationMutation, RegisterMutationMutationVariables>;
+export type RegisterMutationResult = ApolloReactCommon.MutationResult<RegisterMutation>;
+export type RegisterMutationOptions = ApolloReactCommon.BaseMutationOptions<RegisterMutation, RegisterMutationVariables>;
