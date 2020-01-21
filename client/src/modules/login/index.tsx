@@ -46,7 +46,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export function LogIn() {
+// todo: get login working with codegen auto generated components. Figure out why requireAuth is not working
+export function Login() {
     const classes = useStyles();
 
     return (

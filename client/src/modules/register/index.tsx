@@ -4,13 +4,14 @@ import {
     RegisterMutationFn,
 } from "../../generated/graphql";
 import {SyntheticEvent} from "react";
+import { RouteComponentProps } from "react-router";
 
 interface IState {
     email: string;
     password: string;
 }
 
-type IProps = RegisterComponentProps
+type IProps = RegisterComponentProps & RouteComponentProps
 
 export class Register extends React.PureComponent<IProps, IState> {
     public state = {
@@ -56,17 +57,18 @@ export class Register extends React.PureComponent<IProps, IState> {
     ) => {
         event.preventDefault();
         const { email, password } = this.state;
+        const { history } = this.props;
         mutate!({
             variables: {
                 email,
                 password
             }
         })
-            .then((res) => {
-                const a = 2 ;
+            .then(() => {
+                history.push("/");
             })
             .catch((error) => {
-                const b = 2;
+                console.log(error)
             })
     };
 }
