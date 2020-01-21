@@ -8,3 +8,10 @@ const registerMutation = gql`
         }
     }
 `;
+
+const logoutMutation = gql`
+    mutation Logout {
+        logout
+    }
+`;
+
